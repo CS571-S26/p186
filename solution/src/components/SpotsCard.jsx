@@ -20,6 +20,8 @@ export default function GreenCayCard() {
           a wide variety of bird species year-round.
         </Card.Text>
 
+
+
         <Card.Text>
           <strong>Possible Birds:</strong><br />
           • Roseate Spoonbill<br />
