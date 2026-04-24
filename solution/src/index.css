@@ -1,0 +1,7 @@
+.zoom-image:hover {
+  transform: scale(1.15);
+}
+
+.image-hover-box:hover .image-overlay {
+  opacity: 1;
+}

@@ -1,6 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
+const navStyle = ({ isActive }) => ({
+  textDecoration: "none",
+  color: isActive ? "#8839c0" : "#3124e2", // 👈 NOT blue anymore
+  fontWeight: isActive ? "bold" : "normal"
+});
+
     return (
         <div style={styles.footer}>
             <Container>
@@ -17,19 +24,37 @@ function Footer() {
 
                     {/* Navigation */}
                     <Col md={4}>
-                        <h5>Explore</h5>
-                        <p><a href="/">Home</a></p>
-                        <p><a href="/spots">Spots</a></p>
-                        <p><a href="/gallery">Gallery</a></p>
-                        <p><a href="/about">About</a></p>
+                    <h5>Explore</h5>
+
+                    <p>
+                        <NavLink to="/" style={navStyle}>
+                        Home
+                        </NavLink>
+                    </p>
+
+                    <p>
+                        <NavLink to="/spots" style={navStyle}>
+                        Spots
+                        </NavLink>
+                    </p>
+
+                    <p>
+                        <NavLink to="/gallery" style={navStyle}>
+                        Gallery
+                        </NavLink>
+                    </p>
+
+                    <p>
+                        <NavLink to="/favorite" style={navStyle}>
+                        Favorite
+                        </NavLink>
+                    </p>
                     </Col>
 
                     {/* Social */}
                     <Col md={4}>
                         <h5>Connect</h5>
                         <p>📷 Instagram</p>
-                        <p>🐦 Twitter</p>
-                        <p>📘 Facebook</p>
                         <p>📧 Email</p>
                     </Col>
                 </Row>
@@ -54,7 +79,10 @@ const styles = {
         backgroundColor: "#1f2d3d",
         color: "white",
         padding: "40px 0",
-        marginTop: "60px"
+        marginTop: "20px"
+    },
+    link: {
+        textdecoration: "none"
     }
 };
 

@@ -17,7 +17,9 @@ export default function HomePage() {
                         <p>
                             Florida is one of the best birdwatching destinations...
                         </p>
-                        <Button href="/spots">Explore Birding Spots</Button>
+                        <Button as={Link} to="/spots">
+                            Explore Birding Spots
+                        </Button>
                     </Col>
 
                     <Col md={6}>

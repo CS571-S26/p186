@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <div>
       <Navbar style={{ backgroundColor: "#0a1f44" }} variant="dark">
-        <Container>
+        <Container fluid style={{ display: "flex", alignItems: "center" }}>
         <Navbar.Brand as={Link} to="/" style={{ display: "flex", alignItems: "center" }}>
         <img
           src={icon}
@@ -17,15 +17,15 @@ export default function Layout() {
         />
         Florida Birding Explorer
         </Navbar.Brand>
-        </Container>
-        <Nav className="ms-auto">
+        
+        <Nav className='ms-auto'>
         <Nav.Link as={Link} to="/">Home</Nav.Link>
         <Nav.Link as={Link} to="/spots">Spots</Nav.Link>
         <Nav.Link as={Link} to="/gallery">Gallery</Nav.Link>
         <Nav.Link as={Link} to="/community">Community</Nav.Link>
         <Nav.Link as={Link} to="/favorite">Favorite</Nav.Link>
         </Nav>
-        
+        </Container>
       </Navbar>
 
       <main>
