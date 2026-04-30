@@ -2,11 +2,13 @@ import { Link, Outlet } from 'react-router-dom';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import Footer from "../components/Footer";
 import icon from "../figures/icon.png";
+import ScrollToTop from "./ScrollToTop";
 import '../App.css'
 
 export default function Layout() {
   return (
     <div>
+      <ScrollToTop />
       <Navbar style={{ backgroundColor: "#0a1f44" }} variant="dark">
         <Container fluid style={{ display: "flex", alignItems: "center" }}>
         <Navbar.Brand as={Link} to="/" style={{ display: "flex", alignItems: "center" }}>

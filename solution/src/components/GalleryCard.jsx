@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react"; 
 import { Card, Carousel } from "react-bootstrap";
+import { FavoritesContext } from "./FavoritesContext";
 import spoonbill2 from "../figures/Rosetaspoonbill2.jpg";
 import Grebe1 from "../figures/Grebe1.jpg";
 import Mitredparakeet1 from "../figures/Mitredparakeet1.jpg";
 
 export function Roseta_Spoonbill() {
-  const [liked, setLiked] = useState(false);
+  //const [liked, setLiked] = useState(false);
+  const { likedPhotos, togglePhoto } = useContext(FavoritesContext);
 
+  const photo = {
+  id: "roseate-spoonbill",
+  name: "Roseate Spoonbill",
+  image: spoonbill2
+};
+
+const liked = likedPhotos.some((item) => item.id === photo.id);
   const images = [spoonbill2];
   const useCarousel = images.length > 2;
 
@@ -51,7 +60,7 @@ export function Roseta_Spoonbill() {
           }}
           onClick={(e) => {
             e.stopPropagation(); // prevent other clicks
-            setLiked(!liked);
+            togglePhoto(photo);
           }}
         >
           {liked ? "❤️" : "♡"}
@@ -62,8 +71,16 @@ export function Roseta_Spoonbill() {
 }
 
 export function Grebe() {
-  const [liked, setLiked] = useState(false);
+  //const [liked, setLiked] = useState(false);
+  const { likedPhotos, togglePhoto } = useContext(FavoritesContext);
 
+  const photo = {
+  id: "pied-billed-grebe",
+  name: "Pied-billed Grebe",
+  image: Grebe1
+};
+
+const liked = likedPhotos.some((item) => item.id === photo.id); 
   const images = [Grebe1];
   const useCarousel = images.length > 2;
 
@@ -108,7 +125,7 @@ export function Grebe() {
           }}
           onClick={(e) => {
             e.stopPropagation(); // prevent other clicks
-            setLiked(!liked);
+            togglePhoto(photo);
           }}
         >
           {liked ? "❤️" : "♡"}
@@ -119,8 +136,16 @@ export function Grebe() {
 }
 
 export function Mitredparakeet() {
-  const [liked, setLiked] = useState(false);
+  //const [liked, setLiked] = useState(false);
+  const { likedPhotos, togglePhoto } = useContext(FavoritesContext);
 
+const photo = {
+  id: "mitred-parakeet",
+  name: "Mitred Parakeet",
+  image: Mitredparakeet1
+};
+
+const liked = likedPhotos.some((item) => item.id === photo.id);
   const images = [Mitredparakeet1];
   const useCarousel = images.length > 2;
 
@@ -165,7 +190,7 @@ export function Mitredparakeet() {
           }}
           onClick={(e) => {
             e.stopPropagation(); // prevent other clicks
-            setLiked(!liked);
+            togglePhoto(photo);
           }}
         >
           {liked ? "❤️" : "♡"}

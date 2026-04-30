@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Card } from "react-bootstrap";
 import { FavoritesContext } from "./FavoritesContext"; 
 
-export default function GreenCayCard() {
+export function GreenCayCard() {
   const [isFlipped, setIsFlipped] = useState(false);
   //const [liked, setLiked] = useState(false);
   const { likedSpots, toggleSpot } = useContext(FavoritesContext);
@@ -64,6 +64,82 @@ export default function GreenCayCard() {
                 • Green Heron<br />
                 • Anhinga<br />
                 • Eastern Screech Owl
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function EvergladesCard() {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const { likedSpots, toggleSpot } = useContext(FavoritesContext);
+
+  const spot = {
+    id: "everglades",
+    name: "Everglades National Park",
+    location: "South Florida"
+  };
+
+  const liked = likedSpots.some((item) => item.id === spot.id);
+
+  return (
+    <div
+      style={styles.wrapper}
+      title={liked ? "click to dislike" : "click to like"}
+      onClick={() => toggleSpot(spot)}
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div
+        style={{
+          ...styles.inner,
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"
+        }}
+      >
+        {/* Front */}
+        <div style={styles.front}>
+          <Card style={styles.card}>
+            <Card.Body style={styles.cardBody}>
+              <div style={styles.star}>
+                {liked ? "★" : "☆"}
+              </div>
+
+              <Card.Title>{spot.name}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                📍 {spot.location}
+              </Card.Subtitle>
+
+              <Card.Text>
+                Everglades National Park is a vast subtropical wetland known for
+                its unique ecosystem and rich wildlife.
+              </Card.Text>
+
+              <Card.Text>
+                It is one of the best places in the U.S. for birdwatching and
+                spotting rare species.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+
+        {/* Back */}
+        <div style={styles.back}>
+          <Card style={styles.card}>
+            <Card.Body style={styles.backBody}>
+              <div style={styles.star}>
+                {liked ? "★" : "☆"}
+              </div>
+
+              <Card.Text>
+                <strong>Possible Birds:</strong><br />
+                • Wood Stork<br />
+                • Great Blue Heron<br />
+                • Snail Kite<br />
+                • Roseate Spoonbill<br />
+                • Osprey
               </Card.Text>
             </Card.Body>
           </Card>

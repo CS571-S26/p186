@@ -54,8 +54,13 @@ const navStyle = ({ isActive }) => ({
                     {/* Social */}
                     <Col md={4}>
                         <h5>Connect</h5>
-                        <p>📷 Instagram</p>
-                        <p>📧 Email</p>
+                        <p>
+                            <NavLink to="/connect" style={navStyle}>
+                                📷 Instagram & 📧 Email
+                            </NavLink>
+                        </p>
+
+                        
                     </Col>
                 </Row>
 
